@@ -1,7 +1,6 @@
 # CAS 570: Fundamentals in Complex Systems 
 ## Computational Project: Stress and Social Interaction ~ Lidia Obregon
 
-scientific question, convince them you made progress toward answering the question
 
 #### Big Picture Questions
 1. How do social interaction and stress relate to one another over time?
@@ -10,6 +9,9 @@ scientific question, convince them you made progress toward answering the questi
 
 #### Introduction/Background
 
+
+
+To implement this relationship, I used the agent-based modeling platform, NetLogo. 
 
 
 #### NetLogo Model (Code)
@@ -138,16 +140,28 @@ end
 
 
 #### NetLogo Model (Interface)
+
+###### Initial number of turtles and reproduction rate are pre-set using the sliders on the left. Mean number of interactions, mean stress level, and mean number of current turtles are displayed in the plots and output windows to the right of the simulated world.
+
 <img width="1227" alt="Screenshot 2023-12-04 at 2 58 53 PM" src="https://github.com/lidiasofiaobregon/CAS570/assets/117681452/870387f5-ce27-4fe9-a4db-e354ee97664f">
 
 
 
-#### Conclusions
+#### Discussion
+_scientific question/convince them you made progress toward answering the question_
 
 
 
 #### Future Directions
+The following four ideas suggest ways to improve the agent-based model and further explore the relationship between social interactions and stress in the future. 
 
+First, I'd like to implement probability functions in the stress accumulation portion of the model. As with most questions of nature and nurture, there is a _likelihood_ that certain parameters an individual posesses will lead to increased stress. Adding in probability, and giving more weight to values of certain parameters will more properly capture this model of being "predisposed", versus being "fated". In addition to adding in probability functions, 
+
+Second, I'd like to refine the aging variable in the model. Instead of setting a random age between 0-100 for each participant, I'd like to more realistically start individuals out at 0 and age accordingly. Furthermore, when a new turtle is "hatched", they're currently also given a randomnly generated age, instead of properly reflecting their nascency. Similarly, at this point, there is not a proper reflection of genetic similarity between "parent" and "offspring"; An implementation of probabilistic genetics would also more accurately reflect the population. 
+
+Third, I'd like to more intentionally refine each of the parameters to more accurately reflect how they scale with stress. At the moment, I've taken what is currently known in the literature when it comes to positive or negative relationships between variables, and I've semi-arbitrarily decided how much stress will be added onto the individual based off of certain cut offs of their parameters. Furthermore, some of the current parameters (8 total) being used contain some overlapping phenomenon. For example, the parameter "unsafety" theoretically includes things such as health metrics and social context information, which we also see present in other parameters (i.e. health_score and bad_social_history). In theory, I could improve the model by more particularly separating out the overlap within parameters to see the clear influence of certain combinations and values over others. Another potential refinement I'd be interested in including would be for the interactions term. Currently, no matter how many people you're in the interaction with, stress only increases or decreases a fixed amount– The number of people present in the interaction doesn't affect the value changes. A more realistic reflection might be an appropriate averaging of the number of people within an interaction, and an adjustment to increase or decrease in stress accordingly.
+
+Lastly, I'd like to eventually explore the mechanisms by which these parameters are interacting within the individual to "produce stress" during an interaction. As we saw in the discussion, the combination of parameters matters for stress– The contignecies between certain parameters and their outcomes (in isolation) are not as cut and dry. Perhaps I could do a behavior spectrum analysis in R to determine the specific profiles of parameters that contribute to high stress or low stress over time, and design experiments around the formulated hypotheses. 
 
 
 #### References
