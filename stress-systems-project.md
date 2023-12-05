@@ -9,9 +9,13 @@
 
 #### Introduction/Background
 
+GUTS theory
+social safety theory
+PNI
+Type "A" personality
+stress, chronic inflammation, disease
 
-
-To implement this relationship, I used the agent-based modeling platform, NetLogo. 
+###### To implement this relationship, I used the agent-based modeling platform, NetLogo. 
 
 
 #### NetLogo Model (Code)
@@ -149,13 +153,25 @@ end
 
 #### Discussion
 _scientific question/convince them you made progress toward answering the question_
+_1. How do social interaction and stress relate to one another over time?
+2. How do social interaction and stress interact to produce disease/health? 
+3. How do individual differences in initial parameters contribute to stress level/disease/health within the population?_
+
+
+Population-level effects
+
+
+
+Individual-level effects
+
+
 
 
 
 #### Future Directions
 The following four ideas suggest ways to improve the agent-based model and further explore the relationship between social interactions and stress in the future. 
 
-First, I'd like to implement probability functions in the stress accumulation portion of the model. As with most questions of nature and nurture, there is a _likelihood_ that certain parameters an individual posesses will lead to increased stress. Adding in probability, and giving more weight to values of certain parameters will more properly capture this model of being "predisposed", versus being "fated". In addition to adding in probability functions, 
+First, I'd like to implement probability functions in the stress accumulation portion of the model. As with most questions of nature and nurture, there is a _likelihood_ that certain parameters an individual posesses will lead to increased stress. Adding in probability, and giving more weight to values of certain parameters will more properly capture this model of being "predisposed", versus being "fated". In addition to adding in probability functions in general, I'd like to add in probability functions for the lower range of the parameters. For example, if neuroticism is high (i.e. greater than 70), I'd like to not only add a function to increase the probability of stress during an interaction, but I'd also like to add the probability of decreasing stress, were the neuroticism value to be less than 30, for example.
 
 Second, I'd like to refine the aging variable in the model. Instead of setting a random age between 0-100 for each participant, I'd like to more realistically start individuals out at 0 and age accordingly. Furthermore, when a new turtle is "hatched", they're currently also given a randomnly generated age, instead of properly reflecting their nascency. Similarly, at this point, there is not a proper reflection of genetic similarity between "parent" and "offspring"; An implementation of probabilistic genetics would also more accurately reflect the population. 
 
