@@ -7,15 +7,11 @@
 2. How do social interaction and stress interact to produce disease/health? 
 3. How do individual differences in initial parameters contribute to stress level/disease/health within the population?
 
-#### Introduction/Background
+#### Introduction
 
-GUTS theory
-social safety theory
-PNI
-Type "A" personality
-stress, chronic inflammation, disease
+In the stress literature, there are several competing theories as to how one explains the phenomena of chronic stress and subsequent development of stress-based diseases. Two of the main theories are the theory of "stressors" and the generalized "unsafety" theory of stress. On one end is the model of stressors (Selye, 1955). This model emphasizes discrete events (real or imagined) that threaten the safety of an individual and cause the stress response in the body. On the other hand is the model of generalized "unsafety", also called the GUTS theory (Brosschot et. al, 2018). This theory, rather than emphasize discrete events known as stressors, theorizes that the stress response's default mode is actually to always be "on" and is only inhibted/turned off when safety is perceived. This model seems to capture more of the chronic nature of stress, and is more theoretically compatible with phenomena such as how the instability of one's social contexts can cause prolonged stress, long after any actual social stressor is present. 
 
-###### To implement this relationship, I used the agent-based modeling platform, NetLogo. 
+Regardless of which theory is used to conceptualize the phenomena of stress, the literature demonstrates that one of the elements that seems to contribute to stress, health, and well-being in general is social interactions (Bernstein et. al 2018, Sun et. al 2019, Milek et. al 2019). For this project, I wanted to simulate an environment where we looked at two levels of the phenomena of stress and social interaction: the individual level and the population level. I wanted to explore how interactions within a population of people with diverse characteristics would contribute to the stress (or lack of stress) of the individual in particular and the population in general. To implement and explore this relationship, I used the agent-based modeling platform, NetLogo. The goal was to explore the Big Picture questions of what stress looked like over time within an individual and within the population as number of interactions between people increased. 
 
 
 #### NetLogo Model (Code)
@@ -145,7 +141,7 @@ end
 
 #### NetLogo Model (Interface)
 
-###### Initial number of turtles and reproduction rate are pre-set using the sliders on the left. Mean number of interactions, mean stress level, and mean number of current turtles are displayed in the plots and output windows to the right of the simulated world.
+###### The initial number of turtles and the reproduction rate are pre-set using the sliders on the left. The mean number of interactions, mean stress level, and mean number of current turtles are displayed in the plots and output windows to the right of the simulated world. These metrics were manipulated during various runs of the simulation to see the effects for the population and the individual turtles. 
 
 <img width="1227" alt="Screenshot 2023-12-04 at 2 58 53 PM" src="https://github.com/lidiasofiaobregon/CAS570/assets/117681452/870387f5-ce27-4fe9-a4db-e354ee97664f">
 
@@ -169,7 +165,7 @@ Individual-level effects
 
 
 #### Future Directions
-The following four ideas suggest ways to improve the agent-based model and further explore the relationship between social interactions and stress in the future. 
+The following five ideas suggest ways to improve the agent-based model and further explore the relationship between social interactions and stress in the future. 
 
 First, I'd like to implement probability functions in the stress accumulation portion of the model. As with most questions of nature and nurture, there is a _likelihood_ that certain parameters an individual posesses will lead to increased stress. Adding in probability, and giving more weight to values of certain parameters will more properly capture this model of being "predisposed", versus being "fated". In addition to adding in probability functions in general, I'd like to add in probability functions for the lower range of the parameters. For example, if neuroticism is high (i.e. greater than 70), I'd like to not only add a function to increase the probability of stress during an interaction, but I'd also like to add the probability of decreasing stress, were the neuroticism value to be less than 30, for example.
 
@@ -177,10 +173,20 @@ Second, I'd like to refine the aging variable in the model. Instead of setting a
 
 Third, I'd like to more intentionally refine each of the parameters to more accurately reflect how they scale with stress. At the moment, I've taken what is currently known in the literature when it comes to positive or negative relationships between variables, and I've semi-arbitrarily decided how much stress will be added onto the individual based off of certain cut offs of their parameters. Furthermore, some of the current parameters (8 total) being used contain some overlapping phenomenon. For example, the parameter "unsafety" theoretically includes things such as health metrics and social context information, which we also see present in other parameters (i.e. health_score and bad_social_history). In theory, I could improve the model by more particularly separating out the overlap within parameters to see the clear influence of certain combinations and values over others. Another potential refinement I'd be interested in including would be for the interactions term. Currently, no matter how many people you're in the interaction with, stress only increases or decreases a fixed amount– The number of people present in the interaction doesn't affect the value changes. A more realistic reflection might be an appropriate averaging of the number of people within an interaction, and an adjustment to increase or decrease in stress accordingly.
 
+Fourth, I'd like to somehow implement a "quality of social interaction" metric into the model. At the moment, the only information about the social interaction that is implemented is the presence of or lack of an interaction (a frequency or quantity), rather than information about the quality of interaction. The literature shows that the quality of the social interaction influences whether or not the interaction contributes to one's well-being, especially considering the characteristics of said individual. A qualitative measure could at first be a random parameter of an interaction, and could advance to be based on the compatibility of a given person's characteristics during an interaction.
+
 Lastly, I'd like to eventually explore the mechanisms by which these parameters are interacting within the individual to "produce stress" during an interaction. As we saw in the discussion, the combination of parameters matters for stress– The contignecies between certain parameters and their outcomes (in isolation) are not as cut and dry. Perhaps I could do a behavior spectrum analysis in R to determine the specific profiles of parameters that contribute to high stress or low stress over time, and design experiments around the formulated hypotheses. 
 
 
 #### References
 
+Bernstein, M. J., Zawadzki, M. J., Juth, V., Benfield, J. A., & Smyth, J. M. (2018). Social interactions in daily life: Within-person associations between momentary social experiences and psychological and physical health indicators. Journal of Social and Personal Relationships, 35(3), 372–394. https://doi.org/10.1177/0265407517691366
 
+Brosschot JF, Verkuil B, Thayer JF. Generalized Unsafety Theory of Stress: Unsafe Environments and Conditions, and the Default Stress Response. Int J Environ Res Public Health. 2018 Mar 7;15(3):464. doi: 10.3390/ijerph15030464. PMID: 29518937; PMCID: PMC5877009.
+
+Milek A, Butler EA, Tackman AM, Kaplan DM, Raison CL, Sbarra DA, Vazire S, Mehl MR. "Eavesdropping on Happiness" Revisited: A Pooled, Multisample Replication of the Association Between Life Satisfaction and Observed Daily Conversation Quantity and Quality. Psychol Sci. 2018 Sep;29(9):1451-1462. doi: 10.1177/0956797618774252. Epub 2018 Jul 3. PMID: 29969949; PMCID: PMC6139582.
+
+Selye, Hans. “Stress and disease.” Science, vol. 122, no. 3171, 1955, pp. 625- 631, https://doi.org/10.1126/science.122.3171.625.
+
+Sun J, Harris K, Vazire S. Is well-being associated with the quantity and quality of social interactions? J Pers Soc Psychol. 2020 Dec;119(6):1478-1496. doi: 10.1037/pspp0000272. Epub 2019 Oct 24. PMID: 31647273.
 
