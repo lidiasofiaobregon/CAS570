@@ -21,7 +21,8 @@ stress, chronic inflammation, disease
 #### NetLogo Model (Code)
 
 1. Initializing the world and the parameters of the turtles (people)
-###### All turtles begin with a random combination of all 8 parameters, with a stress level of 0, and with number of interactions 0
+###### To start, we clarify what terms will be used in this code, in order to establish a "global" reality of sorts. I included terms such as "extroversion, stress, age, etc., in order to encompass the parameters and the outcome variables. In order to formally set up the "turtles" (or people) in this world, I created a function "setup-turtles" and specified eight different parameters for each turtle. Each turtle is given a random configuration of the eight parameters, valued from 0 to 100. I set the color of each turtle to correspond to their stress level, so I could see the changes in stress levels as the simulation ran. 
+
 ```
 turtles-own[unsafety neuroticism extroversion age health_score stress_genes diet_score bad_social_history n_interactions stress]
 
@@ -47,7 +48,7 @@ end
 
 ```
 2. Creating the functions for aging and reproduction
-###### Each new turtle has its own random confirguation of 8 parameters
+###### In order to increment the age and replicate the phenomena of dying from old age, I implemented an increment-age function that would take the current age of a turtle (set at a random number between 0 to 100) at every time step and and increase it by a value of 1. Once the turtle reached an "age" of 95, I had that turtle "die". Additionally, I created a reproduction function to replicate the phenomena of reproduction and have growth within the population of turtles. At random intervels, a new turtle would be "hatched" and set up with its own random configuration of the eight parameters. 
 
 ```
 to increment-age
@@ -57,7 +58,6 @@ end
 
 to reproduce
   if random-float 100 < reproduce-turtles [  ; throw "dice" to see if you will reproduce
-    ;set energy (energy / 2)                ; divide energy between parent and offspring
     hatch 1 [
     set shape "person"
     set unsafety random 100
@@ -75,7 +75,7 @@ end
 ```
 
 3. Creating the function for interactions
-###### At every tick (time step), count the number of other turtles in the same area (path). If there is more than 1 turtle around, consider an interaction has been had and adjust stress levels accordingly (based on specific parameters)
+###### I created a function to be implemented at every time step that would count the number of other turtles in the surrounding area (on the same "patch) and consider other turtles present as an interaction. If an interaction occured ("greater than zero"), I would adjust the stress measure accordingly. I selected six of the eight parameters and, based off the current literature, made assumptions of how each parameter would affect a turtle's stress level (when they had an interaction). Some of the measures increased stress level (i.e. neuroticism >= 60), while other measures decreased stress level (i.e. extroversion >= 50).
 
 ```
 to interact 
@@ -101,7 +101,7 @@ end
 ```
 
 4. Creating the function for stress feedback
-###### Based off of current stress levels, adjust malleable parameters
+###### To incorporate the phenomena of feedback, I created a function to add or subtract a certain amount of a parameter's value based of whether or not the the turtle's stress level was above or below a certain amount. For example, if the turtle's stress level was above 300, I would add 20 points on to their 'bad_social_history' parameter. I selected only three parameters for these feedback loops (unsafety, bad_social_history, and health_score), based off the knowledge that these are more malleable parameters than, say, stress_genes or neuroticism. 
 
 ```
 to feedback_stress ;add stress feedback loops to parameters that can change (how does stress affect their original parameters)
@@ -123,7 +123,7 @@ end
 
 
 5. Creating the main "go" function
-###### Specify how turtles move in their environment/perform all the above functions; Randomnly turn right or left 45 degrees, and take a step forward; Adjust the color of the turtle based on stress level
+###### This "go" function merely took all the above functions and moved the simulation forward. At every time step, the turtles would take a right turn a random amount of degrees between 0 to 45, a left turn a random amount of degrees from 0 to 45, and then take a step forward once. The functions for interacting, stress feedback, aging, and reproduction would then proceed, and the color of the turtle would be adjusted based on stress level. 
 
 ```
 to go 
