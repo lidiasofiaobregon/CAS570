@@ -11,7 +11,7 @@
 
 In the stress literature, there are several competing theories as to how one explains the phenomena of chronic stress and subsequent development of stress-based diseases. Two of the main theories are the theory of "stressors" and the generalized "unsafety" theory of stress. On one end is the model of stressors (Selye, 1955). This model emphasizes discrete events (real or imagined) that threaten the safety of an individual and cause the stress response in the body. On the other hand is the model of generalized "unsafety", also called the GUTS theory (Brosschot et. al, 2018). This theory, rather than emphasize discrete events known as stressors, theorizes that the stress response's default mode is actually to always be "on" and is only inhibted/turned off when safety is perceived. This model seems to capture more of the chronic nature of stress, and is more theoretically compatible with phenomena such as how the instability of one's social contexts can cause prolonged stress, long after any actual social stressor is present. 
 
-Regardless of which theory is used to conceptualize the phenomena of stress, the literature demonstrates that one of the elements that seems to contribute to stress, health, and well-being in general is social interactions (Bernstein et. al 2018, Sun et. al 2019, Milek et. al 2019). For this project, I wanted to simulate an environment where we looked at two levels of the phenomena of stress and social interaction: the individual level and the population level. I wanted to explore how interactions within a population of people with diverse characteristics would contribute to the stress (or lack of stress) of the individual in particular and the population in general. To implement and explore this relationship, I used the agent-based modeling platform, NetLogo. The goal was to explore the Big Picture questions of what stress looked like over time within an individual and within the population as number of interactions between people increased. 
+Regardless of which theory is used to conceptualize the phenomena of stress, the literature demonstrates that one of the elements that seems to contribute to stress, health, and well-being in general is social interactions (Bernstein et. al 2018, Sun et. al 2019, Milek et. al 2019). For this project, I wanted to simulate an environment where we looked at two levels of the phenomena of stress and social interaction: the individual level and the population level. I wanted to explore how interactions within a population of people with diverse characteristics would contribute to the stress (or lack of stress) of the individual in particular and the population in general. To implement and explore this relationship, I used the agent-based modeling platform, NetLogo. The goal was to explore the Big Picture questions of what stress looked like over time within an individual and within the population as number of interactions between people increased. Additionally, I wanted to explore what kind of individual differences (i.e. combinations of parameters) contributed to being stressed and eventually dying from stress. Each individual (or "turtle" in NetLogo) was configured with eight parameters that, based off the literature, have been shown to relate in one way or another to stress. These eight parameters are unsafety (Brosschot et. al, 2018), neuroticism (Amestoy et. al 2023), extroversion (Xin et. al, 2017), age (Brosschot et. al, 2018), health score (Brosschot et. al, 2018), stress genes (Buchanan & Lovallo, 2019), diet score (Brosschot et. al, 2018), and bad social history (Slavich 2022). These parameters were randomnly configured for each individual and were explored over time within an indiviual as their number of interactions increased.
 
 
 #### NetLogo Model (Code)
@@ -148,19 +148,15 @@ end
 
 
 #### Discussion
-_scientific question/convince them you made progress toward answering the question_
-_1. How do social interaction and stress relate to one another over time?
-2. How do social interaction and stress interact to produce disease/health? 
-3. How do individual differences in initial parameters contribute to stress level/disease/health within the population?_
+After having simulated the model with different configurations of starting turtles and reproduction rates, I was able to see some of the dynamics within the population emerge. To start, it was surprising to see how, when the reproduction rate was set at 3% for example, the mean stress level within a population stayed at a dynamic equilibrium point (as can be seen in the screenshot below). Rather than the entire population's stress level increasing exponentially as multiple individuals' stress levels increased, the stress level at the population as a whole stayed around an average point. Though people died from both stress and "old age", it seems like the individual's who were highly stressed and whose stressed continuously increased were balanced out by individual's whose parameters did not make them stressed out easily upon having an interaction. 
 
 
-Population-level effects
+I further explored indivual-level effects to determine if there were certain configurations of parameters that served as protective against stress, or conversely, detrimental to one's life. It seemed like there were consistent patterns within the turtles that died from stress (i.e. a stress level above 500). These turtles tended to have high levels of the "unsafety" parameter and the "bad social history" parameter, which alert to the influence of lifestyle, social context, and environment on one's stress levels (see screenshot below). 
+
+<img width="997" alt="Screenshot 2023-12-05 at 4 57 21 PM" src="https://github.com/lidiasofiaobregon/CAS570/assets/117681452/811b362b-20c3-48ab-9d3a-3de87b187ef7">
 
 
-
-Individual-level effects
-
-
+I believe I've made progress to understanding the Big Picture questions of how social interaction and stress relate to one another over time, how they interact to produce disease, and what kinds of individual differences contribute to stress levels within the population. I've explored how increases in number of social interactions don't necessarily directly contribute to increases or decreases in stress unilaterally, but that it's a matter of an individual's configuration of parameters. I've explored how certain parameters such as levels of "unsafety" and "bad social history" contribute highly to stress-based mortality (within this model). Starting with high levels of these parameters makes it more likely to "die" quickly upon multiple interactions. 
 
 
 
@@ -180,13 +176,20 @@ Lastly, I'd like to eventually explore the mechanisms by which these parameters 
 
 #### References
 
+Amestoy ME, D'Amico D, Fiocco AJ. Neuroticism and Stress in Older Adults: The Buffering Role of Self-Esteem. Int J Environ Res Public Health. 2023 Jun 12;20(12):6102. doi: 10.3390/ijerph20126102. PMID: 37372689; PMCID: PMC10298711.
+
 Bernstein, M. J., Zawadzki, M. J., Juth, V., Benfield, J. A., & Smyth, J. M. (2018). Social interactions in daily life: Within-person associations between momentary social experiences and psychological and physical health indicators. Journal of Social and Personal Relationships, 35(3), 372–394. https://doi.org/10.1177/0265407517691366
 
 Brosschot JF, Verkuil B, Thayer JF. Generalized Unsafety Theory of Stress: Unsafe Environments and Conditions, and the Default Stress Response. Int J Environ Res Public Health. 2018 Mar 7;15(3):464. doi: 10.3390/ijerph15030464. PMID: 29518937; PMCID: PMC5877009.
+
+Buchanan TW, Lovallo WR. The role of genetics in stress effects on health and addiction. Curr Opin Psychol. 2019 Jun;27:72-76. doi: 10.1016/j.copsyc.2018.09.005. Epub 2018 Sep 21. PMID: 30292777; PMCID: PMC6428629.
 
 Milek A, Butler EA, Tackman AM, Kaplan DM, Raison CL, Sbarra DA, Vazire S, Mehl MR. "Eavesdropping on Happiness" Revisited: A Pooled, Multisample Replication of the Association Between Life Satisfaction and Observed Daily Conversation Quantity and Quality. Psychol Sci. 2018 Sep;29(9):1451-1462. doi: 10.1177/0956797618774252. Epub 2018 Jul 3. PMID: 29969949; PMCID: PMC6139582.
 
 Selye, Hans. “Stress and disease.” Science, vol. 122, no. 3171, 1955, pp. 625- 631, https://doi.org/10.1126/science.122.3171.625.
 
+Slavich GM. Social Safety Theory: Understanding social stress, disease risk, resilience, and behavior during the COVID-19 pandemic and beyond. Curr Opin Psychol. 2022 Jun;45:101299. doi: 10.1016/j.copsyc.2022.101299. Epub 2022 Jan 19. PMID: 35219156; PMCID: PMC8769662.
+
 Sun J, Harris K, Vazire S. Is well-being associated with the quantity and quality of social interactions? J Pers Soc Psychol. 2020 Dec;119(6):1478-1496. doi: 10.1037/pspp0000272. Epub 2019 Oct 24. PMID: 31647273.
 
+Xin, Y., Wu, J., Yao, Z. et al. The relationship between personality and the response to acute psychological stress. Sci Rep 7, 16906 (2017). https://doi.org/10.1038/s41598-017-17053-2.
